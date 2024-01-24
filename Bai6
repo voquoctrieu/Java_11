@@ -1,0 +1,52 @@
+package Java_11;
+
+public class Bai6 {
+    public static void main(String[] args) {
+        int n = 10; 
+        int count = 0;
+        int number = 2;
+/*
+ *  Khai báo và khởi tạo biến
+ *  Số lượng số nguyên tố cần in ra
+ *  Biến đếm số lượng số nguyên tố đã in ra
+ *  Biến chứa số nguyên dương để kiểm tra là số nguyên tố
+ */
+        System.out.println(n + " Số nguyên tố đầu tiên là:");
+        while (count < n) {
+            if (isPrime(number)) {
+                System.out.print(number + " ");
+                count++;
+            }
+            number++;
+        }
+    }
+    /*
+     * // Kiểm tra xem số hiện tại có phải là số nguyên tố không
+     * In ra số nguyên tố
+     * Tăng biến đếm
+     * Chuyển sang kiểm tra số tiếp theo
+     */
+    
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        /*
+         * Phương thức kiểm tra xem một số có phải là số nguyên tố hay không
+         * Số nguyên nhỏ hơn hoặc bằng 1 không phải là số nguyên tố
+         */
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+}
+/*
+ * Kiểm tra xem num có chia hết cho bất kỳ số nào từ 2 đến căn bậc hai của num không
+ * Nếu num chia hết cho một số nào đó, nó không phải là số nguyên tố
+ * Nếu không có số nào chia hết, num là số nguyên tố
+ */
