@@ -1,0 +1,60 @@
+package Java_11;
+
+import java.util.Scanner;
+
+
+public class MyMath {
+    public static float[] nhapMang() {
+        try (Scanner scanner = new Scanner(System.in)) {
+			System.out.println("Nhập số lượng phần tử của mảng:");
+			int n = scanner.nextInt();
+			float[] array = new float[n];
+			for (int i = 0; i < n; i++) {
+			    System.out.println("Nhập phần tử thứ " + (i + 1) + ":");
+			    array[i] = scanner.nextFloat();
+			}
+			return array;
+		}
+    }
+    public static void main(String[] args) {
+        float[] array = nhapMang();
+        xuatMang(array);
+        System.out.println("Giá trị lớn nhất trong mảng: " + maxMang(array));
+        System.out.println("Giá trị nhỏ nhất trong mảng: " + minMang(array));
+        System.out.println("Giá trị trung bình của mảng: " + avgMang(array));
+    }
+
+    public static void xuatMang(float[] array) {
+        for (float v : array) {
+            System.out.println(v);
+        }
+    }
+
+    public static float maxMang(float[] array) {
+        float max = array[0];
+        for (float v : array) {
+            if (v > max) {
+                max = v;
+            }
+        }
+        return max;
+    }
+
+    public static float minMang(float[] array) {
+        float min = array[0];
+        for (float v : array) {
+            if (v < min) {
+                min = v;
+            }
+        }
+        return min;
+    }
+
+    public static float avgMang(float[] array) {
+        float sum = 0;
+        for (float v : array) {
+            sum += v;
+        }
+        return sum / array.length;
+    }
+}
