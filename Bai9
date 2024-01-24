@@ -1,0 +1,43 @@
+package Java_11;
+
+public class Bai9 {
+
+    public static class PalindromicNumbersFinder {
+        public static void main(String[] args) {
+            System.out.println("Các số thuận nghịch có 6 chữ số là:");
+            for (int i = 100000; i < 1000000; i++) {
+                if (isPalindromic(i)) {
+                    System.out.print(i + " ");
+                }
+            }
+        }
+
+        /**
+         *In ra các số thuận nghịch có 6 chữ số
+         *Kiểm tra xem một số có phải là số thuận nghịch hay không.
+         * n ra số thuận nghịch
+         *
+         * @param num Số cần kiểm tra.
+         * @return True nếu là số thuận nghịch, ngược lại là False.
+         */
+        public static boolean isPalindromic(int num) {
+            String numStr = String.valueOf(num);
+            int left = 0;
+            int right = numStr.length() - 1;
+            while (left < right) {
+                if (numStr.charAt(left) != numStr.charAt(right)) {
+                    return false;
+                }
+                left++;
+                right--;
+            }
+            return true;
+        }
+    }
+}
+/*
+ * Chuyển số thành chuỗi để dễ xử lý
+ * Sử dụng hai con trỏ để so sánh chữ số từ đầu đến cuối của chuỗi
+ * Nếu chữ số tại vị trí left không bằng chữ số tại vị trí right, số không thuận nghịch
+ * Nếu đã kiểm tra hết mà không phát hiện chữ số nào không giống nhau, số là thuận nghịch
+ */
