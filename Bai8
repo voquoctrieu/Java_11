@@ -1,0 +1,42 @@
+package Java_11;
+
+public class Bai8 {
+    public static class DigitSumCalculator {
+        public static void main(String[] args) {
+            int n = 1234;
+            int sum = calculateDigitSum(n);
+
+            System.out.println("Tổng các chữ số của " + n + " là: " + sum);
+        }
+
+        /**
+         * Tính tổng các chữ số của một số nguyên dương.
+         *
+         * @param num Số nguyên dương cần tính tổng chữ số.
+         * @return Tổng các chữ số của số nguyên dương.
+         * @throws IllegalArgumentException Nếu số nhập vào không là số nguyên dương.
+         */
+        public static int calculateDigitSum(int num) {
+            if (num < 0) {
+                throw new IllegalArgumentException("Số nhập vào phải là số nguyên dương.");
+            }
+
+            int sum = 0;
+            int temp = num;
+            while (temp > 0) {
+                int digit = temp % 10;
+                sum += digit;
+                temp /= 10;
+            }
+            return sum;
+        }
+    }
+}
+/**
+ * Kiểm tra nếu số nhập vào không là số nguyên dương
+ * Khởi tạo biến tổng
+ * Sử dụng vòng lặp để duyệt qua từng chữ số của số nguyên
+ * Lấy chữ số cuối cùng
+ * Cộng vào tổng
+ * Loại bỏ chữ số cuối cùng
+ */
