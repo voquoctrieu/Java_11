@@ -1,0 +1,36 @@
+package Java_11;
+
+public class Bai7{
+    public static void main(String[] args) {
+        System.out.println("Các số nguyên tố có 5 chữ số là:");
+        for (int i = 10000; i < 100000; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+    /*
+     * In ra các số nguyên tố có 5 chữ số
+     *  Kiểm tra xem số hiện tại có phải là số nguyên tố không
+     *  In ra số nguyên tố
+     */
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+/*
+ * Phương thức kiểm tra xem một số có phải là số nguyên tố hay không
+ * Số nguyên nhỏ hơn hoặc bằng 1 không phải là số nguyên tố
+ * Kiểm tra xem num có chia hết cho bất kỳ số nào từ 2 đến căn bậc hai của num không
+ * Nếu num chia hết cho một số nào đó, nó không phải là số nguyên tố
+ * Nếu không có số nào chia hết, num là số nguyên tố
+*/
