@@ -1,0 +1,36 @@
+package Java_11;
+
+public class Bai5 {
+    public static void main(String[] args) {
+        int n = 100;
+        /*
+         * In ra các số nguyên tố nhỏ hơn n
+         */
+        System.out.println("Số nguyên tố nhỏ hơn " + n + ":");
+        for (int i = 2; i < n; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        /*
+         * Phương thức kiểm tra xem một số có phải là số nguyên tố hay không
+         * Số nguyên nhỏ hơn hoặc bằng 1 không phải là số nguyên tố
+         */
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        /*
+         * Nếu num chia hết cho một số nào đó, nó không phải là số nguyên tố
+         * Nếu không có số nào chia hết, num là số nguyên tố
+         */
+        return true;
+    }
+}
