@@ -1,0 +1,28 @@
+package Java_11;
+import java.util.Scanner;
+public class Bai4 {
+
+	    public static int findGCD(int a, int b) {
+	        if (b == 0) {
+	            return a;
+	        }
+	        return findGCD(b, a % b);
+	    }
+
+	    public static int findLCM(int a, int b) {
+	        return (a * b) / findGCD(a, b);
+	    }
+
+	    public static void main(String[] args) {
+	        try (Scanner scanner = new Scanner(System.in)) {
+				System.out.print("Nhập số a: ");
+				int a = scanner.nextInt();
+				
+				System.out.print("Nhập số b: ");
+				int b = scanner.nextInt();
+				
+				System.out.println("Ước số chung lớn nhất của " + a + " và " + b + " là: " + findGCD(a, b));
+				System.out.println("Bội số chung nhỏ nhất của " + a + " và " + b + " là: " + findLCM(a, b));
+			}
+	    }
+	}
