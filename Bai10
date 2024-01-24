@@ -1,0 +1,48 @@
+package Java_11;
+
+import java.util.Scanner;
+
+public class Bai10 {
+    public static void main(String[] args) {
+        try (Scanner scanner = new Scanner(System.in)) {
+			System.out.print("Nhập số tự nhiên n: ");
+			int n = scanner.nextInt();
+			System.out.println("Các số Fibonacci nhỏ hơn " + n + " là số nguyên tố là:");
+			int a = 0, b = 1, c;
+			while (a < n) {
+			    if (isPrime(a)) {
+			        System.out.print(a + " ");
+			    }
+			    c = a + b;
+			    a = b;
+			    b = c;
+			}
+		}
+    }
+    /*
+     * Sử dụng try-with-resources để tự động đóng Scanner sau khi sử dụng
+     * In ra thông báo với giá trị của n
+     *  Khởi tạo các biến cho dãy số Fibonacci
+     *  Dùng vòng lặp để tạo dãy số Fibonacci và kiểm tra số nguyên tố
+     *  In ra số Fibonacci là số nguyên tố
+     */
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+/*
+ * Phương thức kiểm tra xem một số có phải là số nguyên tố hay không
+ * Số nguyên nhỏ hơn hoặc bằng 1 không phải là số nguyên tố
+ * Kiểm tra xem num có chia hết cho bất kỳ số nào từ 2 đến căn bậc hai của num không
+ * Nếu num chia hết cho một số nào đó, nó không phải là số nguyên tố
+ * Nếu không có số nào chia hết, num là số nguyên tố
+ */
