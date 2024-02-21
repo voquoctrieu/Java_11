@@ -1,0 +1,79 @@
+package Java_11;
+
+import java.util.Scanner;
+
+public class BTVN {
+    /**
+     * Phương thức chính thực hiện nhập, hiển thị ma trận và tính tổng của hai ma trận.
+     */
+    public static void main(String[] args) {
+        // Nhập hai ma trận từ người dùng
+        int[][] matran1 = nhapMaTran();
+        int[][] matran2 = nhapMaTran();
+
+        // Hiển thị ma trận đã nhập
+        System.out.println("Ma trận 1:");
+        xuatMaTran(matran1);
+        System.out.println("Ma trận 2:");
+        xuatMaTran(matran2);
+
+        // Tính tổng của hai ma trận và hiển thị kết quả
+        int[][] ketqua = congHaiMaTran(matran1, matran2);
+        System.out.println("Kết quả:");
+        xuatMaTran(ketqua);
+    }
+
+    /**
+     * Phương thức nhập ma trận từ người dùng.
+     *
+     * @return Ma trận nhập từ người dùng.
+     */
+    public static int[][] nhapMaTran() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhập số hàng: ");
+        int rows = scanner.nextInt();
+        System.out.print("Nhập số cột: ");
+        int cols = scanner.nextInt();
+        int[][] matran = new int[rows][cols];
+        System.out.println("Nhập các phần tử của ma trận:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matran[i][j] = scanner.nextInt();
+            }
+        }
+        return matran;
+    }
+
+    /**
+     * Phương thức hiển thị ma trận.
+     *
+     * @param matran Ma trận cần hiển thị.
+     */
+    public static void xuatMaTran(int matran[][]) {
+        for (int[] row : matran) {
+            for (int cell : row) {
+                System.out.print(cell + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    /**
+     * Phương thức tính tổng của hai ma trận.
+     *
+     * @param matran1 Ma trận thứ nhất.
+     * @param matran2 Ma trận thứ hai.
+     * @return Ma trận kết quả sau khi tính tổng.
+     */
+    public static int[][] congHaiMaTran(int matran1[][], int matran2[][]) {
+        int rows = matran1.length;
+        int cols = matran1[0].length;
+        int[][] ketqua = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                ketqua[i][j] = matran1[i][j] + matran2[i][j];
+            }
+        }
+        return ketqua;
+    }
+}
